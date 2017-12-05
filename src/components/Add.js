@@ -18,15 +18,15 @@ class Add extends Component {
 
     }
 
+    let body = {
+        title: this.state.title,
+        subTitle: this.state.subTitle,
+        image: this.state.image,
+        text: this.state.text
+    }
     
     post(){
-        axios.post('/api/blogs',{
-            title: this.state.title,
-            subTitle: this.state.subTitle,
-            image: this.state.image,
-            text: this.state.text
-        }
-    ).then(this.props.history.push(`/blog/${results.data.id}`)).catch(console.log)
+        axios.post('/api/blogs', body).then(results => this.props.history.push(`/blog/${results.data.id}`)).catch(console.log)
     }
     
     
